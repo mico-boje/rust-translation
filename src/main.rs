@@ -1,3 +1,5 @@
+mod t5;
+
 fn main() {
-    println!("Hello, world!");
+    t5::t5_print().ok();
 }
