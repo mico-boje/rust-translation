@@ -26,22 +26,22 @@ use rust_bert::pipelines::translation::{Language, TranslationConfig, Translation
 use rust_bert::resources::{RemoteResource, Resource};
 use tch::Device;
 
-fn main() -> anyhow::Result<()> {
+pub fn m2m100_print() -> anyhow::Result<()> {
     let model_resource = Resource::Remote(RemoteResource::from_pretrained(
-        M2M100ModelResources::M2M100_418M,
+        M2M100ModelResources::M2M100_1_2B,
     ));
     let config_resource = Resource::Remote(RemoteResource::from_pretrained(
-        M2M100ConfigResources::M2M100_418M,
+        M2M100ConfigResources::M2M100_1_2B,
     ));
     let vocab_resource = Resource::Remote(RemoteResource::from_pretrained(
-        M2M100VocabResources::M2M100_418M,
+        M2M100VocabResources::M2M100_1_2B,
     ));
     let merges_resource = Resource::Remote(RemoteResource::from_pretrained(
-        M2M100MergesResources::M2M100_418M,
+        M2M100MergesResources::M2M100_1_2B,
     ));
 
-    let source_languages = M2M100SourceLanguages::M2M100_418M;
-    let target_languages = M2M100TargetLanguages::M2M100_418M;
+    let source_languages = M2M100SourceLanguages::M2M100_1_2B;
+    let target_languages = M2M100TargetLanguages::M2M100_1_2B;
 
     let translation_config = TranslationConfig::new(
         ModelType::M2M100,
